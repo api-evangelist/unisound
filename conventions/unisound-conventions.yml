@@ -1,0 +1,60 @@
+generated: '2026-07-21'
+method: searched
+source: https://maas.unisound.com/docs/api/overview
+authentication:
+  style: bearer-api-key
+  header: 'Authorization: Bearer <api_key>'
+  anthropic_compatible_header: 'x-api-key: <api_key>'
+  artifact: authentication/unisound-authentication.yml
+compatibility:
+  - surface: OpenAI Chat Completions
+    endpoint: POST https://maas-api.unisound.com/v1/chat/completions
+    docs: https://maas.unisound.com/docs/api/text/openai-compatible
+  - surface: Anthropic Messages
+    endpoint: POST https://maas-api.unisound.com/anthropic/v1/messages
+    docs: https://maas.unisound.com/docs/api/text/anthropic-compatible
+async_pattern:
+  style: task-polling
+  description: 'Long-running work (long-audio transcription, long-text synthesis,
+    document parsing) is submitted as a task returning a task_id; clients poll a GET
+    task-status endpoint until completion. Result URLs from long-text synthesis expire
+    9 hours (32400 s) after being returned. Inputs are staged through the file API
+    (POST /v1/files/upload with a purpose such as a2t_async_input) which returns a
+    file_id.'
+streaming:
+  - style: sse
+    description: 'Chat endpoints support stream: true for incremental deltas; the
+      Anthropic-compatible endpoint emits message_start / content_block_start / content_block_delta
+      / content_block_stop / message_delta / message_stop events.'
+  - style: websocket
+    description: 'One-shot and real-time speech recognition use WSS endpoints; the
+      legacy Open Platform ASR is ws[s]://ws-osasr.hivoice.cn/v1/asr.'
+model_capabilities:
+  - name: context-cache
+    docs: https://maas.unisound.com/docs/guide/capability/context-cache
+    note: Cache hits are billed at a discounted input rate (e.g. U2 0.02 vs 1 CNY per
+      million tokens).
+  - name: prefix-continuation
+    docs: https://maas.unisound.com/docs/guide/capability/prefix-continuation
+  - name: structured-output
+    docs: https://maas.unisound.com/docs/guide/capability/structured-output
+  - name: function-calling
+    docs: https://maas.unisound.com/docs/guide/capability/function-calling
+error_envelope:
+  description: HTTP status plus business error code with documented meaning and resolution;
+    legacy Open Platform responses carry errorCode (0 = success).
+  artifact: errors/unisound-problem-types.yml
+rate_limits:
+  docs: https://maas.unisound.com/docs/api/rate-limit
+  signaling: 'Open Platform code 20206 signals concurrency limit exceeded; 20207 signals
+    quota exhausted.'
+idempotency:
+  supported: false
+  note: No idempotency-key mechanism is documented on either platform.
+pagination:
+  note: File list endpoints exist (GET /v1/files); no cross-cutting pagination convention
+    is documented.
+versioning:
+  artifact: lifecycle/unisound-lifecycle.yml
+  style: uri-path
+  current: v1 (Token Hub), rest/v1.1 (UniGPT WebAPI)

@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://maas.unisound.com/docs/release/notes
+scheme: model-releases
+notes: 'Token Hub publishes a 模型发布 (model release) feed rather than a dated API changelog;
+  entries announce model launches and capability updates without published dates on
+  the index page. The platform carries model filing number Beijing-ShanHai-20231205.'
+entries:
+- name: Unisound U2
+  kind: text
+  highlights: Agent-native LLM with autonomous planning, tool calling, multi-agent
+    coordination, long-horizon task orchestration, and self-correction.
+- name: U2-Med
+  kind: text
+  highlights: Medical/insurance/pharma LLM covering clinical, review, risk-control,
+    and health-management scenarios.
+- name: U2-ASR
+  kind: speech
+  highlights: Long-audio structured transcription; claimed industry-first 90%+ accuracy
+    in complex noise and dialect scenarios; 26 languages and Chinese dialects.
+- name: U2-TTS
+  kind: speech
+  highlights: Emotionally expressive, highly human-like text-to-speech.
+- name: U2-TTS-Clone
+  kind: speech
+  highlights: One-sentence voice cloning with emotion transfer and Chinese-English
+    cross-lingual synthesis.
+- name: U1-OCR
+  kind: vision
+  highlights: Document classification, certificate recognition, layout restoration,
+    and key-information extraction for multi-language, handwritten, and non-standard
+    documents.
+- name: U1-OCR-Med
+  kind: vision
+  highlights: Medical document parsing for records, prescriptions, reports, and billing
+    documents, handling handwriting, stamps, and complex layouts.
+upcoming:
+- name: U2-ASR-Med
+  status: announced (敬请期待)
+- name: U2-TTS-Med
+  status: announced (敬请期待)
+- name: U2-RadiMed
+  status: announced (敬请期待)

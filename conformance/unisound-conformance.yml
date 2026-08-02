@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: searched
+source: https://maas.unisound.com/docs/api/overview
+standards:
+- id: openai-chat-completions
+  conforms: true
+  evidence: 'Token Hub documents an OpenAI-compatible chat completions endpoint (POST
+    https://maas-api.unisound.com/v1/chat/completions) and an OpenAI-compatible GET
+    models list; docs: https://maas.unisound.com/docs/api/text/openai-compatible'
+- id: anthropic-messages
+  conforms: true
+  evidence: 'Token Hub documents an Anthropic Messages-compatible endpoint (POST
+    https://maas-api.unisound.com/anthropic/v1/messages, x-api-key header, message_start/content_block_delta
+    streaming events); docs: https://maas.unisound.com/docs/api/text/anthropic-compatible'
+- id: oauth2
+  conforms: false
+  evidence: No OAuth 2.0 surface documented; Bearer API keys and SHA-256 signature
+    authentication only.
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect discovery documents on any probed host (all /.well-known
+    probes returned 404 or SPA catch-all pages).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use vendor envelopes (HTTP status + business error code; errorCode
+    on the legacy platform), not application/problem+json.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key mechanism documented.
+- id: websocket-streaming
+  conforms: true
+  evidence: One-shot and real-time speech recognition use WSS endpoints (wss://ws-osasr.hivoice.cn/v1/asr
+    and Token Hub WSS ASR endpoints).
+regulatory_filings:
+- id: cn-icp-filing
+  value: 京ICP备12032250号-2
+  evidence: Published in the Token Hub site footer.
+- id: cn-algorithm-filing
+  value: 网信算备110108172572101230023号
+  evidence: China algorithm registry filing published in the Token Hub site footer.
+- id: cn-model-filing
+  value: Beijing-ShanHai-20231205
+  evidence: LLM filing number for the Shanhai model published in the Token Hub site
+    footer.

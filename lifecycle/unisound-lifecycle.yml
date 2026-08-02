@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://maas.unisound.com/docs
+versioning:
+  scheme: uri-path
+  current: v1
+  notes: 'Token Hub REST endpoints are versioned under /v1 (maas-api.unisound.com/v1);
+    the Anthropic-compatible surface is mounted at /anthropic/v1. The legacy Shanhai
+    (UniGPT) WebAPI uses rest/v1.1; Open Platform WebSocket ASR uses /v1/asr.'
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or RFC 8594 Sunset-header support was found.
+sla:
+  url: null
+  notes: No public SLA was found; pricing notes say model prices may be adjusted at
+    any time.
+status_page: null
+release_notes: https://maas.unisound.com/docs/release/notes
+deprecated_operations: []

@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://maas.unisound.com/docs/price/overview
+currency: CNY
+plan_count: 3
+plans:
+- name: Pay-as-you-go (按量计费)
+  description: Metered billing per model; supports all modalities. Prices may be adjusted
+    at any time.
+  pricing:
+  - {model: Unisound U2, input_per_million_tokens: 1, cache_hit_per_million_tokens: 0.02, output_per_million_tokens: 2}
+  - {model: U2-Med, input_per_million_tokens: 2.5, cache_hit_per_million_tokens: 0.5, output_per_million_tokens: 10}
+  - {model: U2-ASR, input_per_hour: 0.4}
+  - {model: U2-TTS, input_per_10k_chars: 0.4}
+  - {model: U2-TTS-Clone, input_per_10k_chars: 4.5}
+  - {model: U1-OCR, output_per_million_tokens: 0.9}
+  - {model: U1-OCR-Med, output_per_million_tokens: 0.3}
+- name: Model resource packs (模型资源包)
+  description: Prepaid resource packs at discounted rates (U2-ASR from 0.3 CNY/hour,
+    U2-TTS from 0.3 CNY/10k chars, U2-TTS-Clone from 3.38 CNY/10k chars, U1-OCR from
+    0.68 CNY/million tokens, U1-OCR-Med from 0.23 CNY/hour).
+- name: Token Plan
+  description: Subscription credit plan with its own API keys managed under 订阅管理 >
+    Token Plan; keys activate when Token Plan credits are available.
+  url: https://maas.unisound.com/docs/token-plan/overview
+free_tier:
+  description: Real-name developer verification grants free resource packs (see sandbox/unisound-sandbox.yml).
+enterprise:
+  description: Flexible billing, custom solutions, and private deployment available
+    via LLM@unisound.com.

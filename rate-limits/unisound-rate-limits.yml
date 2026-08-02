@@ -1,0 +1,65 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Unisound
+providerId: unisound
+generated: '2026-07-21'
+method: searched
+created: '2026-07-21'
+modified: '2026-07-21'
+tags:
+- Rate Limiting
+- Artificial Intelligence
+description: Unisound Token Hub enforces per-model RPM (requests per minute) and TPM
+  (tokens per minute, input + output combined) limits; the API refuses further requests
+  when a threshold is exceeded within the window. No rate-limit response headers are
+  documented. On the legacy AI Open Platform, error code 20206 signals concurrency
+  limit exceeded and 20207 quota exhausted.
+sources:
+- https://maas.unisound.com/docs/api/rate-limits
+limits:
+- name: Text models (u2, u2-med, kimi-k3, glm-5.2) requests
+  scope: model
+  metric: requests_per_minute
+  limit: 100
+  timeFrame: minute
+- name: Text models (u2, u2-med, kimi-k3, glm-5.2) tokens
+  scope: model
+  metric: tokens_per_minute
+  limit: 10000000
+  timeFrame: minute
+- name: Async speech transcription tasks (v1_audio_asr_tasks, u2-asr)
+  scope: interface
+  metric: requests_per_minute
+  limit: 20
+  timeFrame: minute
+- name: Async speech synthesis tasks (v1_audio_speech_tasks, u2-tts / u2-tts-clone)
+  scope: interface
+  metric: requests_per_minute
+  limit: 20
+  timeFrame: minute
+- name: Voice clone (v1_audio_voices_clone, u2-tts-clone)
+  scope: interface
+  metric: requests_per_minute
+  limit: 20
+  timeFrame: minute
+- name: Document parsing tasks (v1_files_parser_tasks, u1-ocr) requests
+  scope: interface
+  metric: requests_per_minute
+  limit: 20
+  timeFrame: minute
+- name: Document parsing tasks (v1_files_parser_tasks, u1-ocr) tokens
+  scope: interface
+  metric: tokens_per_minute
+  limit: 100000
+  timeFrame: minute
+- name: OCR image extraction (v1_ocr_image_extract, u1-ocr / u1-ocr-med) requests
+  scope: interface
+  metric: requests_per_minute
+  limit: 20
+  timeFrame: minute
+- name: OCR image extraction (v1_ocr_image_extract, u1-ocr / u1-ocr-med) tokens
+  scope: interface
+  metric: tokens_per_minute
+  limit: 100000
+  timeFrame: minute

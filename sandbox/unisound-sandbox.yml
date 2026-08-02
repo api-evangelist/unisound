@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://maas.unisound.com/docs/guide/quickstart
+playground:
+  url: https://maas.unisound.com/playground
+  description: Token Hub 模型体验 playground for trying U2 text, speech, and vision models
+    in the browser before integrating the API.
+test_vs_live:
+  separation: none
+  notes: 'There is no separate test mode or test-key prefix; new accounts instead
+    receive free resource packs after completing real-name developer verification,
+    which are consumed against the live API.'
+free_trial_grants:
+  trigger: real-name developer verification (个人 or 企业)
+  grants:
+  - model: U2-ASR
+    quota: 5 hours
+  - model: U2-TTS
+    quota: 50,000 characters
+  - model: U2-TTS-Clone
+    quota: 20,000 characters
+  - model: Unisound U2
+    quota: 5,000,000 tokens
+  - model: U2-Med
+    quota: 5,000,000 tokens
+  - model: U1-OCR
+    quota: 5,000,000 tokens
+  - model: U1-OCR-Med
+    quota: 5,000,000 tokens
+notes:
+- The AI Open Platform (ai.unisound.com) also offers free trial quotas for its speech
+  services via the developer console (/toControl/controls).

@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+notes: 'No genuine well-known discovery documents were found. Hosts ai.unisound.com
+  and dev.hivoice.cn return HTTP 200 for every path from SPA catch-all routing; the
+  bodies are HTML application shells, not the requested documents, so they are recorded
+  as spa-catch-all (effectively not published). No raw files were saved.'
+hosts:
+- host: https://www.unisound.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://ai.unisound.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 200, result: spa-catch-all}
+  - {path: /.well-known/oauth-authorization-server, status: 200, result: spa-catch-all}
+  - {path: /.well-known/api-catalog, status: 200, result: spa-catch-all}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://maas.unisound.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://dev.hivoice.cn
+  documents:
+  - {path: /.well-known/security.txt, status: 200, result: spa-catch-all}
+  - {path: /.well-known/openid-configuration, status: 200, result: spa-catch-all}
+  - {path: /.well-known/oauth-authorization-server, status: 200, result: spa-catch-all}
+  - {path: /.well-known/api-catalog, status: 200, result: spa-catch-all}
+  - {path: /.well-known/ai-plugin.json, status: 200, result: spa-catch-all}
+  - {path: /llms.txt, status: 200, result: spa-catch-all}

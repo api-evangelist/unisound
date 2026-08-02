@@ -1,0 +1,61 @@
+generated: '2026-07-21'
+method: searched
+source: https://maas.unisound.com/docs/api/errorcode
+format: vendor
+envelope: 'Token Hub errors return an HTTP status plus a business error code; the
+  legacy Open Platform APIs return errorCode (0 = success) in the response body.
+  Error tables document HTTP status, business error code, meaning, and resolution.'
+problems:
+- status: 400
+  code: 100001
+  title: Parameter error
+  detail: Request parameters are invalid.
+  remediation: Check that request parameters are correctly passed.
+  source: https://maas.unisound.com/docs/api/errorcode
+- code_range: 100xxx
+  title: General errors
+  detail: Authentication, parameter, and backend errors common to all Token Hub services.
+  source: https://maas.unisound.com/docs/api/errorcode
+- code_range: 101xxx
+  title: File management errors
+  detail: Errors from the file upload/list/retrieve/download/delete APIs. 101999 is
+    an unknown error requiring customer service with the task_id.
+  source: https://maas.unisound.com/docs/api/errorcode
+- code_range: 200xxx
+  title: Asynchronous transcription errors
+  detail: Errors from the async long-audio speech transcription task APIs (codes 200001-200099).
+  source: https://maas.unisound.com/docs/api/errorcode
+- code_range: 202xxx
+  title: One-shot speech recognition errors
+  detail: One-sentence recognition errors including idle timeout and decode failures
+    (codes 202001-202005).
+  source: https://maas.unisound.com/docs/api/errorcode
+- code_range: 203xxx
+  title: Real-time speech recognition errors
+  detail: Real-time transcription errors (codes 203001-203005).
+  source: https://maas.unisound.com/docs/api/errorcode
+- code_range: 220xxx-221xxx
+  title: Speech synthesis errors
+  detail: Voice/audio generation errors, primarily voice configuration validation.
+  source: https://maas.unisound.com/docs/api/errorcode
+- code_range: 240xxx
+  title: Text model errors
+  detail: Errors from the U2 text-generation endpoints.
+  source: https://maas.unisound.com/docs/api/errorcode
+- code_range: 260xxx-280xxx
+  title: OCR service errors
+  detail: Document parsing and extraction errors; remediation typically involves contacting
+    support with the task_id.
+  source: https://maas.unisound.com/docs/api/errorcode
+open_platform_codes:
+- code: 0
+  title: Success
+- code: 20201
+  title: Parameter error
+- code: 20206
+  title: Concurrency limit exceeded
+- code: 20207
+  title: Quota exhausted
+- code: 20209
+  title: Client IP not whitelisted
+- source: https://ai.unisound.com/doc/asronesentence/WebAPI.html

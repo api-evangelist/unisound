@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: https://maas.unisound.com/docs/guide/quickstart
+docs: https://maas.unisound.com/docs/api/overview
+summary:
+  types:
+  - apiKey
+  - signature
+  api_key_in:
+  - header
+  oauth2_flows: []
+schemes:
+- name: TokenHubBearer
+  type: http
+  scheme: bearer
+  description: 'Unisound Token Hub API keys, created in the console under 按量计费&资源包
+    > API Key 管理 (pay-as-you-go / resource packs) or 订阅管理 > Token Plan (Token Plan
+    subscriptions). Sent as Authorization: Bearer <api_key> on OpenAI-compatible and
+    REST endpoints.'
+  docs: https://maas.unisound.com/docs/guide/quickstart
+- name: TokenHubAnthropicApiKey
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: 'The Anthropic-compatible messages endpoint (POST /anthropic/v1/messages
+    on maas-api.unisound.com) authenticates with the same Token Hub API key sent in
+    the x-api-key header, mirroring the Anthropic Messages API convention.'
+  docs: https://maas.unisound.com/docs/api/text/anthropic-compatible
+- name: OpenPlatformSignature
+  type: signature
+  in: query
+  description: 'The AI Open Platform WebSocket and REST APIs (ws-osasr.hivoice.cn,
+    unigpt-api.hivoice.cn) use signature authentication: a SHA-256 digest over appkey
+    + timestamp + secret (WebSocket ASR) or appkey + udid + timestamp + secret (UniGPT
+    WebAPI), passed as time/appkey/sign query or body parameters. The appkey and secret
+    are issued per product on the open platform.'
+  docs: https://ai.unisound.com/doc/asronesentence/WebAPI.html
+notes:
+- No OAuth 2.0 or OpenID Connect surface is documented on either platform.
+- Token Hub warns keys must never be embedded in browser/client code and should be
+  rotated immediately if leaked.

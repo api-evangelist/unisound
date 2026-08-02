@@ -1,26 +1,151 @@
 aid: unisound
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/unisound.png
 name: Unisound
-description: 'Unisound is a company surfaced as a portfolio company of qiming and added to the API Evangelist
-  network as a stub for enrichment. Sector: ai. This profile is a lead awaiting the enrichment pipeline.'
+description: 'Unisound (云知声) is a Chinese AGI technology company delivering conversational
+  AI across smart living and smart healthcare. Its Token Hub MaaS platform exposes
+  OpenAI- and Anthropic-compatible APIs for the Unisound U2 agent-native large language
+  model and U2-Med medical model, plus U2-ASR speech transcription, U2-TTS synthesis
+  and voice cloning, voiceprint, and U1-OCR document parsing services, alongside the
+  legacy AI Open Platform WebSocket speech APIs and the Shanhai (UniGPT) LLM WebAPI.'
 url: https://raw.githubusercontent.com/api-evangelist/unisound/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - qiming
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: real-api-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-- Ai
-apis: []
+- Artificial Intelligence
+- Speech Recognition
+- Text-to-Speech
+- Voice Cloning
+- Large Language Models
+- OCR
+- Healthcare
+- Machine Learning
+- Voice
+apis:
+- name: Unisound Token Hub API
+  description: 'Multi-modal MaaS API for Unisound U2 models: OpenAI-compatible chat
+    completions and Anthropic-compatible messages for the U2 and U2-Med LLMs (streaming,
+    function calling, structured output, context caching, prefix continuation), WebSocket
+    one-shot and real-time speech recognition, asynchronous long-audio transcription
+    and long-text speech synthesis via task polling, voiceprint registration and
+    lookup, voice cloning and timbre management, asynchronous document parsing and
+    information extraction (U1-OCR), and file management. Authenticated with Bearer
+    API keys.'
+  humanURL: https://maas.unisound.com/docs/api/overview
+  baseURL: https://maas-api.unisound.com/v1
+  tags:
+  - LLM
+  - Speech Recognition
+  - Text-to-Speech
+  - Voice Cloning
+  - OCR
+  properties:
+  - type: Documentation
+    url: https://maas.unisound.com/docs
+  - type: APIReference
+    url: https://maas.unisound.com/docs/api/overview
+- name: Unisound Shanhai (UniGPT) LLM WebAPI
+  description: 'REST chat-completions WebAPI for the Shanhai (山海 / UniGPT) large
+    language model on the Unisound AI Open Platform. POST rest/v1.1/chat/completions
+    with signature-based authentication (SHA-256 over appkey + udid + timestamp +
+    secret), supporting streaming and non-streaming responses.'
+  humanURL: https://ai.unisound.com/doc/unigpt/WebAPI.html
+  baseURL: https://unigpt-api.hivoice.cn
+  tags:
+  - LLM
+  - Chat
+- name: Unisound AI Open Platform Speech WebAPI
+  description: 'WebSocket speech APIs on the Unisound AI Open Platform: one-sentence
+    speech recognition (Mandarin, Cantonese, Sichuanese, English; domain models for
+    medical, finance, law, and more), real-time transcription, audio file transcription,
+    oral evaluation, voiceprint, and speech synthesis. Signature-based authentication
+    (SHA-256 over appkey + timestamp + secret); iOS, Android, and HarmonyOS SDKs.'
+  humanURL: https://ai.unisound.com/doc/asronesentence/WebAPI.html
+  baseURL: wss://ws-osasr.hivoice.cn/v1/asr
+  tags:
+  - Speech Recognition
+  - Text-to-Speech
+  - Voice
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/unisound-domain-security.yml
 - type: Website
-  url: https://unisound.com
+  url: https://www.unisound.com
+- type: DeveloperPortal
+  url: https://ai.unisound.com
+- type: Documentation
+  url: https://maas.unisound.com/docs
+- type: APIReference
+  url: https://maas.unisound.com/docs/api/overview
+- type: GettingStarted
+  url: https://maas.unisound.com/docs/guide/quickstart
+- type: Pricing
+  url: https://maas.unisound.com/docs/price/overview
+- type: TermsOfService
+  url: https://maas.unisound.com/docs/protocol/user-agreement
+- type: PrivacyPolicy
+  url: https://maas.unisound.com/docs/protocol/privacy-policy
+- type: Support
+  url: https://maas.unisound.com/docs/guide/contact
+- type: GitHubOrganization
+  url: https://github.com/Unisound
+- type: SignUp
+  url: https://maas.unisound.com/
+- type: RateLimits
+  url: rate-limits/unisound-rate-limits.yml
+- type: RateLimits
+  url: https://maas.unisound.com/docs/api/rate-limits
+- type: ChangeLog
+  url: https://maas.unisound.com/docs/release/notes
+- type: ChangeLog
+  url: changelog/unisound-changelog.yml
+- type: Packages
+  url: packages/unisound-packages.yml
+- type: SDKs
+  url: packages/unisound-packages.yml
+- type: LLMsTxt
+  url: llms/unisound-llms.txt
+- type: Conformance
+  url: conformance/unisound-conformance.yml
+- type: ErrorCatalog
+  url: errors/unisound-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/unisound-lifecycle.yml
+- type: Authentication
+  url: authentication/unisound-authentication.yml
+- type: Sandbox
+  url: sandbox/unisound-sandbox.yml
+- type: Conventions
+  url: conventions/unisound-conventions.yml
+- type: Plans
+  url: plans/unisound-plans.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v1

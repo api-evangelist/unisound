@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: https://ai.unisound.com/doc/asronesentence/WebAPI.html
+notes: 'No first-party Unisound packages were found on npm, PyPI, Maven Central, or
+  other public registries (npm and PyPI searched 2026-07-21; the npm package unisound-ui
+  is third-party). Unisound distributes official mobile SDKs for its AI Open Platform
+  speech services as downloads through the developer console, documented per product.
+  Token Hub is consumed via OpenAI/Anthropic-compatible endpoints, so standard OpenAI
+  and Anthropic client libraries work against it.'
+packages:
+- language: objective-c
+  registry: vendor-download
+  name: Unisound iOS SDK (one-sentence speech recognition)
+  url: https://ai.unisound.com/doc/asronesentence/iOS-SDK.html
+  official: true
+- language: java
+  registry: vendor-download
+  name: Unisound Android SDK (one-sentence speech recognition)
+  url: https://ai.unisound.com/doc/asronesentence/Android-SDK.html
+  official: true
+- language: arkts
+  registry: vendor-download
+  name: Unisound HarmonyOS SDK (one-sentence speech recognition)
+  url: https://ai.unisound.com/doc/asronesentence/HarmonyOS-SDK.html
+  official: true
